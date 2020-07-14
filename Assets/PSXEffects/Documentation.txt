@@ -1,0 +1,63 @@
+ ____  ____  _  _  ____  ____  ____  ____  ___  ____  ____ 
+(  _ \/ ___)( \/ )(  __)(  __)(  __)(  __)/ __)(_  _)/ ___)
+ ) __/\___ \ )  (  ) _)  ) _)  ) _)  ) _)( (__   )(  \___ \
+(__)  (____/(_/\_)(____)(__)  (__)  (____)\___) (__) (____/
+
+-------------------------------------------------------------
+
+Thank you for checking out my asset!  PSXEffects will help you create that
+old, very outdated, yet beautiful look that the first PlayStation console provides.
+
+
+This package includes one main script: PSXEffects.cs.  This script handles
+setting variables and properties in PSXEffect's shaders and also handles
+PSX image effect rendering.  It doesn't really need to be messed with as it
+is intended to display all of the package's settings in the inspector.
+However, you can set variables in this script during runtime if needed.
+
+PSXEffects.cs properties:
+-Screen Canvas - A reference to a RawImage where the screen with image effects gets
+-Resolution Factor - Determines how pixelated the main display is (default: 2)
+rendered (you can find a pre-made canvas in the included Prefabs folder)
+-Limit Framerate - Determines the maximum frames per second (default: 60)
+-Affine Texture Mapping - Simulates the PSX's distorted texture look (default: true)
+-Polygonal Draw Distance - Simulates culling of entire polygons in many PSX
+games relative to the distance from the camera (default: 0)
+-Polygon Inaccuracy - Simulates the PSX's lack of a Z-buffer (default: 10)
+-Vertex Inaccuracy - Simulates vertex snapping (default: 30)
+-Saturated Diffuse - Adds a little more darkness to the dark side of meshes (default: 20)
+-Use Skybox Lighting - Toggles whether to gather color from the skybox (default: false)
+-Color Depth - Determines how many colors are allowed at once (default: 32)
+-Subtraction Fade - Fades the screen just like original PSX games (default: 0)
+-Darken Darks/Favor Red - Darkens dark colors and subtly tints them red like PSX lighting (default: 1)
+-Scanlines - Draws vertical scanlines on the screen (default: false)
+-Scanline Intensity - Changes how intense the scanline effect is (default: 5)
+-Dithering - Simulates PSX dithering effects (default: true)
+-Dither Texture - Determines what texture to use to dither
+-Dither Threshold - Changes how "sensitive" dithering gets applied (default: 1)
+-Dither Intensity - Changes how intense the dithering effect is (5)
+
+
+PSXEffects comes with a very important shader: PS1Shader.shader.  Creative name huh?
+This shader handles the look of all models.
+
+PSXShader.shader properties:
+-Transparent - Whether the material should be see-through
+-Texture - The main texture (default: white)
+-Color - Color tint (default: white)
+-Specular - Level of glossiness (default: 0.0)
+-Cubemap - Optional cubemap reflection (default: rgb(0.5, 0.5, 0.5))
+-Unlit - Whether the mesh should receive lighting
+
+
+Tips:
+When affine mapping is turned on, textures will stretch like crazy when the
+camera gets close.  This effect is more noticable if the model's polygons
+are bigger in size.  To tone down the stretching, subdivide your polygons
+that are affected by extreme affine mapping stretching.
+
+If you build your game and just see a black screen, this is because Unity
+didn't include the PSXEffects shaders by default.  To fix this, go to
+Edit>Project Settings>Graphics and under Built-in Shader Settings, expand
+Always Included Shaders and add "Hidden/PS1ColorDepth" and "Custom/PS1Shader"
+to the array.
