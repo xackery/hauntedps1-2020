@@ -3,6 +3,10 @@ This is a project for the [Haunted PS1 Summer of Screams game jam](https://itch.
 
 Voting process is [held on twitter](https://twitter.com/HauntedPs1)
 
+## Tools
+
+Unity 2019.4.3f1 (LTS)
+Blender 2.79b
 
 ## Misc resources
 
